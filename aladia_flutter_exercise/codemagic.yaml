@@ -1,0 +1,29 @@
+workflows:
+  default-workflow:
+    name: My Flutter Project Workflow
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      # Specify the working directory
+      vars:
+        WORKING_DIRECTORY: 'my_flutter_project' # Update this with your subfolder path
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd $WORKING_DIRECTORY
+          flutter pub get
+      - name: Run tests
+        script: |
+          cd $WORKING_DIRECTORY
+          flutter test
+      - name: Build APK
+        script: |
+          cd $WORKING_DIRECTORY
+          flutter build apk
+      - name: Build iOS
+        script: |
+          cd $WORKING_DIRECTORY
+          flutter build ios --no-codesign
+    artifacts:
+      - $WORKING_DIRECTORY/build/app/outputs/flutter-apk/app-release.apk
+      - $WORKING_DIRECTORY/build/ios/ipa/*.ipa
