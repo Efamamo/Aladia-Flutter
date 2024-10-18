@@ -1,4 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Option Default', type: Option)
+Center defaultOption(BuildContext context) {
+  return const Center(
+    child: Option(
+      text: "Signin with Facebook",
+      icon: 'assets/icons/facebook.png',
+    ),
+  );
+}
 
 class Option extends StatelessWidget {
   final text;

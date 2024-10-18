@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Input Field Default', type: LoginError)
+Center defaultError(BuildContext context) {
+  return const Center(child: LoginError(text: "Password Error"));
+}
 
 class LoginError extends StatelessWidget {
   final String text;

@@ -4,17 +4,28 @@ import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:aladia_flutter_exercise/widgets/button.dart';
 import 'package:aladia_flutter_exercise/widgets/error.dart';
 import 'package:aladia_flutter_exercise/widgets/input.dart';
+import 'package:aladia_flutter_exercise/widgets/separator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Email extends StatefulWidget {
-  const Email({super.key});
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+import 'package:provider/provider.dart';
 
-  @override
-  State<Email> createState() => _EmailState();
+@widgetbook.UseCase(name: 'Separator Default', type: Login)
+Center defaultLogin(BuildContext context) {
+  return Center(
+    child: Login(),
+  );
 }
 
-class _EmailState extends State<Email> {
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -23,6 +34,7 @@ class _EmailState extends State<Email> {
     final authProvider = Provider.of<AuthProvider>(context);
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           "Enter your email",
