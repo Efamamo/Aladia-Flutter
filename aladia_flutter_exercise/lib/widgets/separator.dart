@@ -1,6 +1,13 @@
 import 'package:aladia_flutter_exercise/widgets/line.dart';
 import 'package:flutter/material.dart';
 
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Separator Default', type: Separator)
+Center defaultSeparator(BuildContext context) {
+  return Center(child: Separator());
+}
+
 class Separator extends StatelessWidget {
   const Separator({super.key});
 

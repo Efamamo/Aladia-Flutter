@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Input Field Default', type: Button)
+Center defaultButton(BuildContext context) {
+  Text text = context.knobs
+      .list(label: "Row", options: [Text(context.knobs.string(label: "Text"))]);
+
+  return Center(child: Button(widget: text));
+}
 
 class Button extends StatefulWidget {
   final Widget widget; // Store the text parameter

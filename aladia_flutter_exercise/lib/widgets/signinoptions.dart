@@ -2,12 +2,22 @@ import 'package:aladia_flutter_exercise/widgets/button.dart';
 import 'package:aladia_flutter_exercise/widgets/option.dart';
 import 'package:flutter/material.dart';
 
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Signin Default', type: SigninOptions)
+Center defaultSignin(BuildContext context) {
+  return Center(
+    child: SigninOptions(),
+  );
+}
+
 class SigninOptions extends StatelessWidget {
   const SigninOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Button(
             widget: Option(

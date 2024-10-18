@@ -2,7 +2,18 @@ import 'dart:ui';
 import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:provider/provider.dart';
+
+@widgetbook.UseCase(name: 'Images Default', type: Image)
+Image defaultImage(BuildContext context) {
+  return Image.asset('assets/home.png');
+}
+
+@widgetbook.UseCase(name: 'Welcome Default', type: Image)
+Center defaultWelcome(BuildContext context) {
+  return Center(child: Welcome());
+}
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -119,11 +130,12 @@ class Welcome extends StatelessWidget {
 
           // Foreground content (higher z-index)
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(width: 10), // Add spacing to the left
+              // Add spacing to the left
               Expanded(
                 child: Image.asset(
-                  "assets/app_icon.png",
+                  "assets/home.png",
                   height: 140,
                 ),
               ),

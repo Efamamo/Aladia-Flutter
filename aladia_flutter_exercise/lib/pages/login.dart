@@ -1,7 +1,7 @@
 import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:aladia_flutter_exercise/widgets/email.dart';
+import 'package:aladia_flutter_exercise/widgets/logins.dart';
 import 'package:aladia_flutter_exercise/widgets/separator.dart';
 import 'package:aladia_flutter_exercise/widgets/signinoptions.dart';
 import 'package:aladia_flutter_exercise/widgets/welcome.dart';
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                const Email(),
+                const Login(),
                 const SizedBox(
                   height: 50,
                 ),
