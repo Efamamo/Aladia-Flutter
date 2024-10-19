@@ -1,4 +1,4 @@
-import 'package:aladia_flutter_exercise/core/network/network.dart';
+import 'package:aladia_flutter_exercise/core/network/network_info.dart';
 import 'package:aladia_flutter_exercise/features/authentication/data/resources/auth_remote_datasource.dart';
 import 'package:aladia_flutter_exercise/features/authentication/domain/entity/login_entity.dart';
 import 'package:aladia_flutter_exercise/features/authentication/domain/repositories/auth_repository.dart';

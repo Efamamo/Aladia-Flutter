@@ -12,8 +12,64 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Separator Default', type: Login)
 Center defaultLogin(BuildContext context) {
-  return const Center(
-    child: Login(),
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  return Center(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Enter your email",
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              color: Theme.of(context).colorScheme.primary),
+        ),
+        const SizedBox(height: 30),
+        SizedBox(
+          width: 350,
+          height: 50,
+          child: Input(
+            borderRadius: 5.0,
+            obscure: false,
+            icon: const Icon(
+              Icons.email,
+              color: Color.fromARGB(255, 83, 83, 83),
+            ),
+            text: "E-mail",
+            controller: emailController,
+          ),
+        ),
+        const SizedBox(height: 20),
+        SizedBox(
+          width: 350,
+          height: 50,
+          child: Input(
+              borderRadius: 5.0,
+              icon: const Icon(
+                Icons.lock,
+                color: Color.fromARGB(255, 83, 83, 83),
+              ),
+              text: "Password",
+              controller: passwordController,
+              obscure: true),
+        ),
+        const SizedBox(height: 15),
+        const SizedBox(height: 15),
+        SizedBox(
+          width: 350,
+          height: 50,
+          child: Button(
+            borderRadius: 5.0,
+            onTap: () {},
+            widget: Text(
+              "Enter",
+              style: TextStyle(
+                  fontSize: 16, color: Theme.of(context).colorScheme.primary),
+            ),
+          ),
+        )
+      ],
+    ),
   );
 }
 
@@ -22,7 +78,6 @@ Center defaultText(BuildContext context) {
   return Center(
     child: Text(
       context.knobs.string(label: "text"),
-      
       style: TextStyle(
           color: context.knobs.color(label: "color"),
           fontSize: context.knobs.double.slider(label: "font size")),

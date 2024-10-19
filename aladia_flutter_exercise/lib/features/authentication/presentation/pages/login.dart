@@ -28,6 +28,18 @@ Center defaultTextButton(BuildContext context) {
   ));
 }
 
+@widgetbook.UseCase(name: "Terms Aand Conditions", type: Center)
+Center defaultTerms(BuildContext context) {
+  return Center(
+      child: TextButton(
+          onPressed: () {},
+          child: Text(
+            "Terms & conditions",
+            style:
+                TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          )));
+}
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

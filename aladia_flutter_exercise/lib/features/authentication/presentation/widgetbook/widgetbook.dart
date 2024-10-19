@@ -1,4 +1,3 @@
-import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/auth_provider.dart';
 import 'package:aladia_flutter_exercise/features/authentication/presentation/widgetbook/widgetbook.directoties.g.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +9,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        MultiProvider(providers: [
-          ChangeNotifierProvider(create: (context) => ThemeProvider()),
-          ChangeNotifierProvider(create: (context) => AuthProvider()),
-        ])
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       child: const WidgetBookApp(),
     ),
