@@ -38,6 +38,10 @@ dependencies:
   http: ^1.2.2
   widgetbook:
   widgetbook_annotation:
+  equatable:
+  dartz: ^0.10.1
+  internet_connection_checker: ^1.0.0+1
+  mockito: ^5.4.4
 
 dev_dependencies:
   flutter_test:

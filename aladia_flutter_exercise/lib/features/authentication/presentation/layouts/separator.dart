@@ -1,4 +1,4 @@
-import 'package:aladia_flutter_exercise/widgets/line.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/widgets/line.dart';
 import 'package:flutter/material.dart';
 
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;

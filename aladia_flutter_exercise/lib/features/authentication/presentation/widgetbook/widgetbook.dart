@@ -1,10 +1,10 @@
-import 'package:aladia_flutter_exercise/provider/auth_provider.dart';
-import 'package:aladia_flutter_exercise/widgetbook/widgetbook.directoties.g.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/auth_provider.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/widgetbook/widgetbook.directoties.g.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:aladia_flutter_exercise/theme/theme.dart';
-import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
+import 'package:aladia_flutter_exercise/core/theme/theme.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/theme_provider.dart';
 
 void main() {
   runApp(

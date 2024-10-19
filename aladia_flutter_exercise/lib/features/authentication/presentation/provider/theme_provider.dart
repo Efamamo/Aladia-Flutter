@@ -1,4 +1,4 @@
-import 'package:aladia_flutter_exercise/theme/theme.dart';
+import 'package:aladia_flutter_exercise/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ThemeProvider with ChangeNotifier {
