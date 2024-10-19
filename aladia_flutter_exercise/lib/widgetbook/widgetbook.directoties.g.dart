@@ -2,11 +2,11 @@ import 'package:aladia_flutter_exercise/widgets/button.dart';
 import 'package:aladia_flutter_exercise/widgets/error.dart';
 import 'package:aladia_flutter_exercise/widgets/input.dart';
 import 'package:aladia_flutter_exercise/widgets/line.dart';
-import 'package:aladia_flutter_exercise/widgets/logins.dart';
+import 'package:aladia_flutter_exercise/layouts/logins.dart';
 import 'package:aladia_flutter_exercise/widgets/option.dart';
-import 'package:aladia_flutter_exercise/widgets/separator.dart';
-import 'package:aladia_flutter_exercise/widgets/signinoptions.dart';
-import 'package:aladia_flutter_exercise/widgets/welcome.dart';
+import 'package:aladia_flutter_exercise/layouts/separator.dart';
+import 'package:aladia_flutter_exercise/layouts/signinoptions.dart';
+import 'package:aladia_flutter_exercise/layouts/welcome.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 final directories = <WidgetbookNode>[

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
+
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Option Default', type: Option)
 Center defaultOption(BuildContext context) {
-  return const Center(
+  return Center(
     child: Option(
-      text: "Signin with Facebook",
+      text: context.knobs.string(label: "Text"),
       icon: 'assets/icons/facebook.png',
     ),
   );

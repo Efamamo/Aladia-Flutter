@@ -1,10 +1,10 @@
 import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:aladia_flutter_exercise/widgets/logins.dart';
-import 'package:aladia_flutter_exercise/widgets/separator.dart';
-import 'package:aladia_flutter_exercise/widgets/signinoptions.dart';
-import 'package:aladia_flutter_exercise/widgets/welcome.dart';
+import 'package:aladia_flutter_exercise/layouts/logins.dart';
+import 'package:aladia_flutter_exercise/layouts/separator.dart';
+import 'package:aladia_flutter_exercise/layouts/signinoptions.dart';
+import 'package:aladia_flutter_exercise/layouts/welcome.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
