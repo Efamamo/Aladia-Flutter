@@ -1,6 +1,7 @@
 import 'package:aladia_flutter_exercise/pages/login.dart';
 import 'package:aladia_flutter_exercise/provider/auth_provider.dart';
 import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
+import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // Your main app widget
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeProvider>(context).themeData,
       title: 'Aladia Exercise',
       home: const LoginPage(),
+      darkTheme: darkMode,
     );
   }
 }

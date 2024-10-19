@@ -12,7 +12,7 @@ Image defaultImage(BuildContext context) {
 
 @widgetbook.UseCase(name: 'Welcome Default', type: Image)
 Center defaultWelcome(BuildContext context) {
-  return Center(child: Welcome());
+  return const Center(child: Welcome());
 }
 
 class Welcome extends StatelessWidget {
@@ -98,7 +98,6 @@ class Welcome extends StatelessWidget {
               ),
             ),
           ),
-
           Positioned.fill(
             top: 50,
             right: -25,
@@ -125,10 +124,6 @@ class Welcome extends StatelessWidget {
               ),
             ),
           ),
-
-          // Second tilted container (next to the previous one)
-
-          // Foreground content (higher z-index)
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

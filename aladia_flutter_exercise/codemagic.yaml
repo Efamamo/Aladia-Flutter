@@ -6,24 +6,34 @@ workflows:
       flutter: stable
       # Specify the working directory
       vars:
-        WORKING_DIRECTORY: 'my_flutter_project' # Update this with your subfolder path
+        WORKING_DIRECTORY: './' #
     scripts:
       - name: Install dependencies
         script: |
           cd $WORKING_DIRECTORY
           flutter pub get
+
       - name: Run tests
         script: |
           cd $WORKING_DIRECTORY
           flutter test
+
       - name: Build APK
         script: |
           cd $WORKING_DIRECTORY
           flutter build apk
+
       - name: Build iOS
         script: |
           cd $WORKING_DIRECTORY
           flutter build ios --no-codesign
+
+      - name: Build Widgetbook for Web
+        script: |
+          cd $WORKING_DIRECTORY
+          flutter pub run build_runner build
+          flutter build web --web-renderer canvaskit --release -t lib/widgetbook.dart
+
     artifacts:
       - $WORKING_DIRECTORY/build/app/outputs/flutter-apk/app-release.apk
       - $WORKING_DIRECTORY/build/ios/ipa/*.ipa
