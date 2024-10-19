@@ -1,17 +1,32 @@
-import 'package:aladia_flutter_exercise/provider/auth_provider.dart';
-import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
-import 'package:aladia_flutter_exercise/theme/theme.dart';
-import 'package:aladia_flutter_exercise/widgets/button.dart';
-import 'package:aladia_flutter_exercise/widgets/error.dart';
-import 'package:aladia_flutter_exercise/widgets/input.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/auth_provider.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/theme_provider.dart';
+import 'package:aladia_flutter_exercise/core/theme/theme.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/widgets/button.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/widgets/error.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/widgets/input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:widgetbook/widgetbook.dart';
+
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Separator Default', type: Login)
 Center defaultLogin(BuildContext context) {
   return const Center(
     child: Login(),
+  );
+}
+
+@widgetbook.UseCase(name: 'Text Default', type: Login)
+Center defaultText(BuildContext context) {
+  return Center(
+    child: Text(
+      context.knobs.string(label: "text"),
+      
+      style: TextStyle(
+          color: context.knobs.color(label: "color"),
+          fontSize: context.knobs.double.slider(label: "font size")),
+    ),
   );
 }
 
@@ -44,7 +59,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Input(
-            borderRadius: 5,
+            borderRadius: 5.0,
             obscure: false,
             icon: const Icon(
               Icons.email,
@@ -62,7 +77,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Input(
-              borderRadius: 5,
+              borderRadius: 5.0,
               icon: const Icon(
                 Icons.lock,
                 color: Color.fromARGB(255, 83, 83, 83),
@@ -89,7 +104,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Button(
-            borderRadius: 5,
+            borderRadius: 5.0,
             onTap: () {
               authProvider.login(
                 emailController.text,

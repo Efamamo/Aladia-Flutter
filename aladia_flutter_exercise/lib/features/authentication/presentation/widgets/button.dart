@@ -5,11 +5,27 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 @widgetbook.UseCase(name: 'Input Field Default', type: Button)
 Center defaultButton(BuildContext context) {
   return Center(
-      child: Button(
-    widget: Text(context.knobs.string(label: "Text")),
-    borderRadius: context.knobs.double
-        .slider(label: "border Radius", initialValue: 5, min: 0, max: 50),
-  ));
+      child: SizedBox(
+          width: context.knobs.double.slider(label: "Width", max: 200),
+          height: context.knobs.double.slider(label: "Height", max: 80),
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              foregroundColor:
+                  context.knobs.color(label: "Text Color"), // Text color
+              backgroundColor:
+                  context.knobs.color(label: "Background Color"), // Text color
+              side: BorderSide(
+                color: context.knobs.color(label: "Border Color"),
+              ), // Black border
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(context.knobs.double
+                    .slider(label: "Border Radius")), // Border radius
+              ),
+            ),
+            onPressed: () {},
+            child: Text(context.knobs
+                .string(label: "Text")), // Access the text using widget.widget
+          )));
 }
 
 class Button extends StatefulWidget {

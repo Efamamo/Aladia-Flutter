@@ -1,5 +1,5 @@
-import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
-import 'package:aladia_flutter_exercise/theme/theme.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/theme_provider.dart';
+import 'package:aladia_flutter_exercise/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -16,13 +16,45 @@ Center defaultInput(BuildContext context) {
       context.knobs.list(label: "Icon", options: [const Icon(Icons.email)]);
 
   return Center(
-      child: Input(
+      child: TextField(
+    obscureText: context.knobs.boolean(label: 'Obscure'),
     controller: controller,
-    icon: icon,
-    text: context.knobs.string(label: "text"),
-    obscure: context.knobs.boolean(label: "obscure"),
-    borderRadius: context.knobs.double
-        .slider(label: "border Radius", initialValue: 5, min: 0, max: 50),
+    decoration: InputDecoration(
+      label: Row(
+        children: [
+          icon,
+          const SizedBox(
+            width: 10,
+          ),
+          Text(
+            context.knobs.string(label: "text"),
+            style: TextStyle(
+                color: context.knobs.color(label: "Text Color"),
+                fontWeight: FontWeight.w600),
+          )
+        ],
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(
+            context.knobs.double.slider(label: "Border Radius")),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(
+            context.knobs.double.slider(label: "Border Radius")),
+        borderSide: BorderSide.none, // Remove the border for the focused state
+      ),
+
+      fillColor: context.knobs.color(
+          label: "Background Color"), // Set background color to light grey
+      filled: true,
+    ),
+    style: TextStyle(
+      color: Provider.of<ThemeProvider>(context, listen: false).themeData ==
+              lightMode
+          ? Colors.white
+          : Colors.black,
+    ), // Change text color to white
+    cursorColor: context.knobs.color(label: "Cursor Color"),
   ));
 }
 

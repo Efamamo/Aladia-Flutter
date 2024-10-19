@@ -1,10 +1,10 @@
-import 'package:aladia_flutter_exercise/theme/theme.dart';
-import 'package:aladia_flutter_exercise/provider/theme_provider.dart';
+import 'package:aladia_flutter_exercise/core/theme/theme.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:aladia_flutter_exercise/layouts/logins.dart';
-import 'package:aladia_flutter_exercise/layouts/separator.dart';
-import 'package:aladia_flutter_exercise/layouts/signinoptions.dart';
-import 'package:aladia_flutter_exercise/layouts/welcome.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/layouts/logins.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/layouts/separator.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/layouts/signinoptions.dart';
+import 'package:aladia_flutter_exercise/features/authentication/presentation/layouts/welcome.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:provider/provider.dart';
@@ -12,9 +12,19 @@ import 'package:provider/provider.dart';
 @widgetbook.UseCase(name: 'TextButton Default', type: TextButton)
 Center defaultTextButton(BuildContext context) {
   return Center(
-      child: TextButton(
-    onPressed: () {},
-    child: Text(context.knobs.string(label: "text")),
+      child: SizedBox(
+    width: context.knobs.double.slider(label: "Width", max: 200),
+    height: context.knobs.double.slider(label: "Height", max: 200),
+    child: TextButton(
+      style: TextButton.styleFrom(
+          side: BorderSide(color: context.knobs.color(label: "Border Color")),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                context.knobs.double.slider(label: "Border Radius")),
+          )),
+      onPressed: () {},
+      child: Text(context.knobs.string(label: "text")),
+    ),
   ));
 }
 
