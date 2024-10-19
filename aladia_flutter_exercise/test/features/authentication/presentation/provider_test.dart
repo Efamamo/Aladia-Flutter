@@ -39,7 +39,7 @@ void main() {
         () async {
       fakeLoginUseCase.setResponse(Left(NotFoundEmailFailure()));
       await authProvider.login('wrong@test.com', 'wrongpassword');
-      expect(authProvider.emailError, 'Invalid email or password.');
+      expect(authProvider.emailError, 'Email not found');
       expect(authProvider.isLoading, false);
     });
 
