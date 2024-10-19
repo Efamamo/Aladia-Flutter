@@ -4,16 +4,13 @@ import 'package:aladia_flutter_exercise/theme/theme.dart';
 import 'package:aladia_flutter_exercise/widgets/button.dart';
 import 'package:aladia_flutter_exercise/widgets/error.dart';
 import 'package:aladia_flutter_exercise/widgets/input.dart';
-import 'package:aladia_flutter_exercise/widgets/separator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
-import 'package:provider/provider.dart';
 
 @widgetbook.UseCase(name: 'Separator Default', type: Login)
 Center defaultLogin(BuildContext context) {
-  return Center(
+  return const Center(
     child: Login(),
   );
 }
