@@ -16,12 +16,14 @@ Center defaultInput(BuildContext context) {
       context.knobs.list(label: "Icon", options: [const Icon(Icons.email)]);
 
   return Center(
-    child: Input(
-        controller: controller,
-        icon: icon,
-        text: context.knobs.string(label: "text"),
-        obscure: context.knobs.boolean(label: "obscure")),
-  );
+      child: Input(
+    controller: controller,
+    icon: icon,
+    text: context.knobs.string(label: "text"),
+    obscure: context.knobs.boolean(label: "obscure"),
+    borderRadius: context.knobs.double
+        .slider(label: "border Radius", initialValue: 5, min: 0, max: 50),
+  ));
 }
 
 class Input extends StatelessWidget {
@@ -29,17 +31,20 @@ class Input extends StatelessWidget {
   final Icon icon;
   final String text;
   final bool obscure;
+  final borderRadius;
 
   const Input(
       {super.key,
       required this.controller,
       required this.icon,
       required this.text,
-      required this.obscure});
+      required this.obscure,
+      required this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: obscure,
       controller: controller,
       decoration: InputDecoration(
         label: Row(
@@ -57,10 +62,10 @@ class Input extends StatelessWidget {
           ],
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(borderRadius),
           borderSide:
               BorderSide.none, // Remove the border for the focused state
         ),

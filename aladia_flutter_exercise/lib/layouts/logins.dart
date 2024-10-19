@@ -44,6 +44,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Input(
+            borderRadius: 5,
             obscure: false,
             icon: const Icon(
               Icons.email,
@@ -61,6 +62,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Input(
+              borderRadius: 5,
               icon: const Icon(
                 Icons.lock,
                 color: Color.fromARGB(255, 83, 83, 83),
@@ -87,6 +89,7 @@ class _LoginState extends State<Login> {
           width: 350,
           height: 50,
           child: Button(
+            borderRadius: 5,
             onTap: () {
               authProvider.login(
                 emailController.text,

@@ -5,7 +5,18 @@ import 'package:aladia_flutter_exercise/layouts/logins.dart';
 import 'package:aladia_flutter_exercise/layouts/separator.dart';
 import 'package:aladia_flutter_exercise/layouts/signinoptions.dart';
 import 'package:aladia_flutter_exercise/layouts/welcome.dart';
+import 'package:widgetbook/widgetbook.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:provider/provider.dart';
+
+@widgetbook.UseCase(name: 'TextButton Default', type: TextButton)
+Center defaultTextButton(BuildContext context) {
+  return Center(
+      child: TextButton(
+    onPressed: () {},
+    child: Text(context.knobs.string(label: "text")),
+  ));
+}
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

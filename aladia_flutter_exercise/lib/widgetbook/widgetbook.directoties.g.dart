@@ -1,3 +1,4 @@
+import 'package:aladia_flutter_exercise/pages/login.dart';
 import 'package:aladia_flutter_exercise/widgets/button.dart';
 import 'package:aladia_flutter_exercise/widgets/error.dart';
 import 'package:aladia_flutter_exercise/widgets/input.dart';
@@ -55,6 +56,15 @@ final directories = <WidgetbookNode>[
           WidgetbookUseCase(
             name: 'Image Default',
             builder: (context) => defaultImage(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'TextButton',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'TextButton Default',
+            builder: (context) => defaultTextButton(context),
           ),
         ],
       ),

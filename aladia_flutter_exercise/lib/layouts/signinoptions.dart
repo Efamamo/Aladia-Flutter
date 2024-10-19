@@ -6,7 +6,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Signin Default', type: SigninOptions)
 Center defaultSignin(BuildContext context) {
-  return Center(
+  return const Center(
     child: SigninOptions(),
   );
 }
@@ -20,12 +20,14 @@ class SigninOptions extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Button(
+            borderRadius: 5,
             widget: Option(
                 text: "Sign in with Google", icon: "assets/icons/google.png")),
         SizedBox(
           height: 30,
         ),
         Button(
+          borderRadius: 5,
           widget: Option(
             icon: "assets/icons/facebook.png",
             text: "Sign in with Facebook",
@@ -35,10 +37,11 @@ class SigninOptions extends StatelessWidget {
           height: 30,
         ),
         Button(
+            borderRadius: 5,
             widget: Option(
-          icon: "assets/icons/apple.png",
-          text: "Sign in with Apple",
-        ))
+              icon: "assets/icons/apple.png",
+              text: "Sign in with Apple",
+            ))
       ],
     );
   }

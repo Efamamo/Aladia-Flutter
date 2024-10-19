@@ -5,7 +5,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'Separator Default', type: Separator)
 Center defaultSeparator(BuildContext context) {
-  return Center(child: Separator());
+  return const Center(child: Separator());
 }
 
 class Separator extends StatelessWidget {
