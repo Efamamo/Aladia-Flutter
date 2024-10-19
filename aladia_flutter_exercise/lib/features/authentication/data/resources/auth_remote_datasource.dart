@@ -26,13 +26,16 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(jsonBody),
     );
-
     // Check the response status codes
     if (response.statusCode == 200) {
       return; // success
     } else if (response.statusCode == 404) {
       // Throw specific failure for 404 status
-      throw const InvalidUserCredentialFailure();
+      throw const NotFoundEmailFailure();
+    } else if (response.statusCode == 401) {
+      throw const InvalidPasswordFailure();
+    } else if (response.statusCode == 422) {
+      throw const InvalidEmailFailure();
     } else {
       // For all other errors, throw a general server failure
       throw const ServerFailure();

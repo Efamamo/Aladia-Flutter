@@ -17,7 +17,14 @@ class ConnectionFailure extends Failure {
       : super("No internet connection. Please try again later.");
 }
 
-class InvalidUserCredentialFailure extends Failure {
-  const InvalidUserCredentialFailure()
-      : super("Invalid user credentials. Please try again.");
+class NotFoundEmailFailure extends Failure {
+  const NotFoundEmailFailure() : super("Email not found. Please try again.");
+}
+
+class InvalidEmailFailure extends Failure {
+  const InvalidEmailFailure() : super("Email is not valid. Please try again.");
+}
+
+class InvalidPasswordFailure extends Failure {
+  const InvalidPasswordFailure() : super("Invalid password. Please try again.");
 }

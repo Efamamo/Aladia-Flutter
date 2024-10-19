@@ -16,6 +16,7 @@ final directories = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Input',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Input',
@@ -25,6 +26,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Card',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Card',
@@ -34,6 +36,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Button',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Button Default',
@@ -43,6 +46,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Text',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Text Default',
@@ -52,6 +56,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Image',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Image Default',
@@ -61,6 +66,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'TextButton',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'TextButton Default',
@@ -75,6 +81,7 @@ final directories = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Welcome',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Welcome Default',
@@ -84,6 +91,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Welcome Message',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Welcome Message',
@@ -93,6 +101,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'BG Gradient',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'BG Gradient Default',
@@ -107,6 +116,7 @@ final directories = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Error',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Error Default',
@@ -116,6 +126,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Login',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Login Default',
@@ -130,6 +141,7 @@ final directories = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Line',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Line Default',
@@ -139,6 +151,7 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Separator',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Separator Default',
@@ -153,6 +166,7 @@ final directories = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Option',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Option Default',
@@ -162,10 +176,26 @@ final directories = <WidgetbookNode>[
       ),
       WidgetbookComponent(
         name: 'Signin Options',
+        isInitiallyExpanded: false,
         useCases: [
           WidgetbookUseCase(
             name: 'Signin Default',
             builder: (context) => defaultSignin(context),
+          ),
+        ],
+      ),
+    ],
+  ),
+  WidgetbookCategory(
+    name: 'Terms and Conditions',
+    children: [
+      WidgetbookComponent(
+        name: 'Terms And Conditions',
+        isInitiallyExpanded: false,
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Terms Default',
+            builder: (context) => defaultTerms(context),
           ),
         ],
       ),

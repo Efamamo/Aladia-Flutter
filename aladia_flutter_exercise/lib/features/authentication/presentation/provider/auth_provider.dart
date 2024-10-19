@@ -1,23 +1,29 @@
-import 'dart:convert'; // For jsonEncode and jsonDecode
-import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import '../../../../core/error/failure.dart';
+import '../../domain/entity/login_entity.dart';
+import '../../domain/usecases/login_usecase.dart';
 
 class AuthProvider with ChangeNotifier {
+  final LoginUseCase loginUseCase;
+
+  AuthProvider(this.loginUseCase);
+
   bool _isLoading = false;
   String _emailError = '';
   String _passwordError = '';
   String _serverError = '';
   String _success = '';
+  String _connectionError = '';
 
-  // Getter for _isLoading
+  // Getters for the state
   bool get isLoading => _isLoading;
-
   String get emailError => _emailError;
   String get passwordError => _passwordError;
   String get serverError => _serverError;
   String get success => _success;
+  String get connectionError => _connectionError;
 
-  // Setter for _isLoading
+  // Setters
   set isLoading(bool value) {
     if (_isLoading != value) {
       _isLoading = value;
@@ -41,44 +47,81 @@ class AuthProvider with ChangeNotifier {
     _success = message;
   }
 
+  set connectionError(String error) {
+    _connectionError = error;
+  }
+
+  void setEmailError(String error) {
+    _emailError = error;
+    notifyListeners();
+  }
+
+  void setPasswordError(String error) {
+    _passwordError = error;
+    notifyListeners();
+  }
+
+  void setServerError(String error) {
+    _serverError = error;
+    notifyListeners();
+  }
+
+  void setSuccess(String message) {
+    _success = message;
+    notifyListeners();
+  }
+
   // Login method
   Future<void> login(String email, String password) async {
-    isLoading = true; // Use the setter to update the loading state
+    // Reset errors before login attempt
     emailError = '';
-    success = '';
     passwordError = '';
     serverError = '';
+    success = '';
+    connectionError = '';
 
-    const String apiUrl = 'https://dev-api.aladia.io/v2/auth/login';
-
-    try {
-      final response = await http.post(
-        Uri.parse(apiUrl),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: jsonEncode({'email': email, 'password': password}),
-      );
-      print(response.body);
-
-      if (response.statusCode == 200) {
-        success = 'Login successful';
-      } else {
-        if (response.statusCode == 404) {
-          emailError = 'User with this email not found';
-        }
-
-        if (response.statusCode == 401) {
-          passwordError = 'Password is incorrect';
-        }
-      }
-    } catch (error) {
-      serverError = 'you cant use this service right now';
-      isLoading = false;
-    } finally {
-      isLoading = false; // Use the setter to update the loading state
+    // Validate email and password before making the async call
+    if (email.isEmpty) {
+      emailError = 'Email is required';
       notifyListeners();
+      return;
     }
+
+    if (password.isEmpty) {
+      passwordError = 'Password is required';
+      notifyListeners();
+      return;
+    }
+
+    // If email and password are not empty, proceed with the login
+    isLoading = true; // Use the setter to update the loading state
+
+    // Create a LoginEntity instance
+    final loginEntity = LoginEntity(email: email, password: password);
+    final result = await loginUseCase(LoginParams(user: loginEntity));
+
+    result.fold(
+      (failure) {
+        isLoading = false; // Stop loading
+        // Handle different types of failures
+        if (failure is InvalidEmailFailure) {
+          emailError = 'Email is Not Valid.';
+        } else if (failure is NotFoundEmailFailure) {
+          emailError = "Email not found";
+        } else if (failure is InvalidPasswordFailure) {
+          passwordError = "Password is incorrect";
+        } else if (failure is ConnectionFailure) {
+          connectionError = 'There is No Internet connection.';
+        } else {
+          serverError = 'An error occurred. Please try again.';
+        }
+        notifyListeners(); // Notify UI of the changes
+      },
+      (_) {
+        isLoading = false; // Stop loading
+        success = 'Login successful!';
+        notifyListeners(); // Notify UI of the success
+      },
+    );
   }
 }
