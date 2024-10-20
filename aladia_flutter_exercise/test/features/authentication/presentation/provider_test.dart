@@ -73,6 +73,5 @@ class FakeLoginUseCase implements LoginUseCase {
   }
 
   @override
-  // TODO: implement authRepository
   AuthRepository get authRepository => throw UnimplementedError();
 }
